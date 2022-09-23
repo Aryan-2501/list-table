@@ -1,0 +1,29 @@
+
+
+.home-container{
+    display: grid;
+    justify-content: center;
+    background: #F7F7F7;
+    align-items: center;
+}
+
+.table-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 45px;
+    margin-bottom: 21px;
+}
+
+.table-header span{
+    font-size: 35px;
+    font-weight: bolder;
+    color: transparent;
+    text-shadow: 0 0 1px #2e2e2e;
+}
+
+.table{
+  
+    width: 1200px;
+}
+

@@ -1,0 +1,123 @@
+
+
+.main {
+    background: #f7f7f7 ;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 7rem;
+}
+
+.main .text{
+    margin-top: 50px;
+}
+.main .text span{
+    font-size: 35px;
+    font-weight: bolder;
+    color: transparent;
+    text-shadow: 0 0 1px #2e2e2e;
+}
+.container {
+    
+    /* margin-top: 130px; */
+/* 
+    margin-left: 500px;
+    margin-bottom: 44px; */
+
+    width: 1315px;
+    height: 850px;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    justify-content: center;
+    align-items: center;
+  
+    background: #FFFFFF ;
+    box-shadow: 0px 3px 6px #0000001A;
+    border-radius: 14px;
+    opacity: 1;
+}
+
+.container .title {
+    font-size: 25px ;
+   text-align: center;
+   color: #2E2E2E;
+    /* font-weight: 500; */
+   
+    position: relative;
+}
+
+.container .title h2{
+    margin-bottom: 0px;
+}
+
+.container .title span {
+    color:#989898;
+    font-size: 20px;
+}
+
+.container .title::before{
+    content: '';
+    position: absolute;
+    right: 517px;
+    bottom: -15px;
+    height: 3px;
+    width: 100px;
+    background: #DEDEDE;
+    
+}
+
+.container form{
+    
+    margin-bottom: -85px;
+
+}
+.container form .trans-details{
+    display: flex;
+    /* flex-wrap: wrap; */
+    margin-left: 218px;
+    margin-right: 218px;
+    color: #2E2E2E;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+}
+
+form .trans-details .box-set{
+display: flex;
+}
+
+form .trans-details .input-box{
+    width: calc(100% /2 - 30px);
+    padding: 20px;
+}
+
+.trans-details .input-box select{
+   
+        height: 50px;
+        width: 400px;
+        background: #f7f7f7;
+        border-radius: 6px;
+        border: 0px;
+        outline: none;
+}
+
+.trans-details .input-box input{
+    height: 50px;
+    width: 400px;
+    background: #f7f7f7;
+    border-radius: 6px;
+    border: 0px;
+    outline: none;
+    /* [type="checkbox"] {
+        accent-color: #ed7117;
+      } */
+}
+
+form .button{
+       display: flex;
+    justify-content: space-evenly;
+    margin-left: 416px;
+    margin-right: 416px;
+    margin-top: 100px;
+}
+
+
