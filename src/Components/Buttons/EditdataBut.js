@@ -14,7 +14,7 @@ function EditdataBut(props) {
   const navigate = useNavigate();
 
   function handleEdit() {
-    console.log(props.rowData);
+    // console.log(props.rowData);
     if (props.rowData) {
       navigate("/editdata", { replace: false });
       localStorage.setItem("editData", JSON.stringify(props.rowData));

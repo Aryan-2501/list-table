@@ -23,7 +23,8 @@ function Submitbut(props) {
     try {
       if (edit) {
         localStorage.setItem(`${value.id}`, JSON.stringify(value));
-        console.log(value);
+        // console.log(value);
+        navigate("/", { replace: true });
       } else {
         if (validation()) {
           let newId = localStorage.getItem("id");
@@ -34,9 +35,9 @@ function Submitbut(props) {
           }
 
           localStorage.setItem(`${value.id}`, JSON.stringify(value));
+          navigate("/", { replace: true });
         }
       }
-      navigate("/", { replace: true });
     } catch (error) {
       console.log(error);
       alert(error.msg);

@@ -1,4 +1,4 @@
-.dropdown-list {
+.dropdown-list input {
     /* display: flex;
     justify-content: space-between;
     border: solid 1px #c0c0c0c4;
@@ -41,7 +41,7 @@
   .dropdown-input {
     cursor: pointer;
     width: 10%;
-   
+  
     height: 20px;
     width: 35px;
     font-weight: 600;

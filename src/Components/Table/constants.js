@@ -2,7 +2,12 @@ import EditdataBut from "../Buttons/EditdataBut";
 
 export const columns = (editData) => [
   { field: "id", headerName: "Transaction ID", width: 130 },
-  { field: "transaction", headerName: "Transaction name", width: 150 },
+  {
+    field: "transaction",
+    headerName: "Transaction name",
+    headerClassName: "super-app-theme--header",
+    width: 150,
+  },
   { field: "email", headerName: "Email", type: "email", width: 170 },
   {
     field: "type",
@@ -18,7 +23,8 @@ export const columns = (editData) => [
   {
     field: "items",
     headerName: "Items",
-    width: 120,
+    width: 180,
+    renderCell: (props) => <ItemsList row={props.row} />,
   },
   {
     field: "amount",
@@ -45,7 +51,7 @@ export const columns = (editData) => [
 //     amount: "1,000",
 //   },
 //   {
-//     id: 3,
+//     id: 2,
 //     name: "A",
 //     email: "a@example.com",
 //     type: "Credit",
@@ -54,7 +60,7 @@ export const columns = (editData) => [
 //     amount: "1,000",
 //   },
 //   {
-//     id: 2,
+//     id: 3,
 //     name: "A",
 //     email: "a@example.com",
 //     type: "Credit",
@@ -117,6 +123,21 @@ export const columns = (editData) => [
 //     amount: "1,000",
 //   },
 // ];
+
+export const ItemsList = ({ row }) => {
+  let itemList = row.items;
+  // console.log(row);
+  return (
+    <>
+      {itemList.map(
+        (label) => (
+          <label>{label.name + " ,"}</label>
+        )
+        // console.log(label)
+      )}
+    </>
+  );
+};
 
 // export const options = () => ({
 //   headerStyles: { size: "40px", backgroundColor: "blue" },

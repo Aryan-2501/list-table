@@ -4,11 +4,12 @@ import "./style.css";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 
 function DropDownList(props) {
-  const { label, Data, setSelected, onChange } = props;
+  const { label, Data, setSelected, onChange, checkItems } = props;
   const [isOpen, setIsOpen] = useState(false);
   const [selectedName, setSelectedName] = useState(null);
   const [isHeight, setIsHeight] = useState(160);
   const [isScrol, setIsScrol] = useState(false);
+  const [isChecked, setIsChecked] = useState(null);
 
   useEffect(() => {
     if (Data) {
@@ -23,6 +24,15 @@ function DropDownList(props) {
     }
   }, [Data]);
 
+  useEffect(() => {
+    if (checkItems) {
+      checkItems.map((items) => {
+        setIsChecked(items.name);
+      });
+    }
+  }, [checkItems]);
+
+  // console.log(isChecked);
   const handleMultipleSelect = () => {
     const checkedValues = Array.from(
       document.querySelectorAll('input[type="checkbox"]')
@@ -34,7 +44,7 @@ function DropDownList(props) {
       }));
 
     if (checkedValues.length > 0) {
-      onChange("");
+      onChange(checkedValues);
       setSelected(checkedValues);
 
       let name = checkedValues.map((Items) => {
@@ -57,7 +67,11 @@ function DropDownList(props) {
           }
         }}
       >
-        {selectedName ? selectedName.join(", ") : "Select item (s)"}
+        {selectedName
+          ? selectedName.join(", ")
+          : isChecked
+          ? isChecked
+          : "Select item (s)"}
         <KeyboardArrowDownRoundedIcon className="arrow" />
       </div>
       {Data ? (

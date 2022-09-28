@@ -11,7 +11,7 @@ function NewData() {
   const [selectedItems, setSelectedItems] = useState("null");
 
   useEffect(() => {
-    handleItemsList();
+    handleMaxDate();
   }, []);
 
   function handleValidation() {
@@ -38,8 +38,26 @@ function NewData() {
     return true;
   }
 
-  function handleItemsList(e, name) {
-    setValues({ ...values, items: selectedItems });
+  function handleMaxDate() {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //-3 for month!
+    let yyyy = today.getFullYear();
+
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
+
+    today = yyyy + "-" + mm + "-" + dd;
+    document.getElementById("date").setAttribute("max", today);
+  }
+
+  function handleItemsList(data) {
+    setValues({ ...values, items: data });
   }
 
   return (
@@ -91,6 +109,7 @@ function NewData() {
                   <span className="input-details">Date of transaction*</span>
                   <input
                     type="date"
+                    // max="2022-09-30"
                     name="date"
                     id="date"
                     onChange={(e) => {
@@ -134,14 +153,6 @@ function NewData() {
                     onChange={handleItemsList}
                     setSelected={setSelectedItems}
                   />
-
-                  {/* <input type="text" 
-                  name="items"
-                  id="items"
-                  onChange={(e)=> {
-                    setValues({...values, items: e.target.value});
-                  }}
-                  value={values.items}/> */}
                 </div>
 
                 <div className="input-box">

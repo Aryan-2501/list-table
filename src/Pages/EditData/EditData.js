@@ -5,25 +5,23 @@ import SubmitButton from "../../Components/Buttons/SubmitButton";
 import "../NewData/stylenew.css";
 import { initialState, typeList } from "../NewData/constants";
 import DropDownList from "../../Components/DropDown/DropDownList";
-import { initialValue } from "./constants";
 
 function EditData(props) {
   const [values, setValues] = useState(initialState);
   const [selectedItems, setSelectedItems] = useState([]);
 
   useEffect(() => {
-    handleItemsList();
+    // handleItemsList();
     let oldData = localStorage.getItem("editData");
     if (oldData) {
       let filterData = JSON.parse(oldData);
-      // let dataEdit = initialValue(filterData);
+
       setValues(...filterData);
     }
   }, []);
-  console.log(values);
 
-  function handleItemsList(e, name) {
-    setValues({ ...values, items: selectedItems });
+  function handleItemsList(data) {
+    setValues({ ...values, items: data });
   }
 
   return (
@@ -31,11 +29,11 @@ function EditData(props) {
       <Navbar />
       <div className="main">
         <div className="text">
-          <span>Create new</span>
+          <span>Edit</span>
         </div>
         <div className="container">
           <div className="title">
-            <h2>Add a new transaction</h2>
+            <h2>Edit transaction</h2>
             <span>Please fill the below details to add new Transaction</span>
           </div>
           <form>
@@ -96,16 +94,6 @@ function EditData(props) {
                     <option value="credit">Credit</option>
                     <option value="debit">Debit</option>
                   </select>
-                  {/* <input
-                    type="text"
-                    name="type"
-                    id="type"
-                    onChange={(e) => {
-                      setValues({ ...values, type: e.target.value });
-                    }}
-                    value={values.type}
-                    required
-                  /> */}
                 </div>
               </div>
 
@@ -115,17 +103,10 @@ function EditData(props) {
 
                   <DropDownList
                     Data={typeList}
+                    checkItems={values.items}
                     onChange={handleItemsList}
                     setSelected={setSelectedItems}
                   />
-
-                  {/* <input type="text" 
-                  name="items"
-                  id="items"
-                  onChange={(e)=> {
-                    setValues({...values, items: e.target.value});
-                  }}
-                  value={values.items}/> */}
                 </div>
 
                 <div className="input-box">

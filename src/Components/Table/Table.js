@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+// import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
 import { columns } from "./constants";
 import SearchBar from "../SearchBar";
@@ -10,16 +10,15 @@ function Table() {
 
   useEffect(() => {
     const local = localStorage;
-    // console.log(local.key());
+
     for (var key in local) {
       if (key !== "id" && key !== "editData") {
         let retrievedData = localStorage.getItem(key);
-        console.log();
+
         if (retrievedData) {
           let filterData = JSON.parse(retrievedData);
+
           setData((preData) => [...preData, filterData]);
-          // setData(filterData);
-          // console.log(filterData);
         }
       }
     }
@@ -40,6 +39,15 @@ function Table() {
         background: "white",
       }}
     >
+      {/* <Box
+        sx={{
+          height: 300,
+          width: "100%",
+          "& .super-app-theme--header": {
+            backgroundColor: "rgba(255, 7, 0, 0.55)",
+          },
+        }}
+      > */}
       <SearchBar />
       <DataGrid
         onSelectionModelChange={(ids) => onRowsSelectionHandler(ids)}
@@ -51,6 +59,7 @@ function Table() {
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
+      {/* </Box> */}
     </div>
   );
 }
