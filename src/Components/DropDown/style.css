@@ -1,4 +1,6 @@
-.dropdown-list input {
+
+
+.dropdown-list {
     /* display: flex;
     justify-content: space-between;
     border: solid 1px #c0c0c0c4;
@@ -28,6 +30,10 @@
     /* input[type="checkbox"] {
       accent-color: #ed7117;
     } */
+  }
+  .dropdown-sublist input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
   }
   
   .dropdown-label {

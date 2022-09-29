@@ -131,16 +131,6 @@ function NewData() {
                     <option value="credit">Credit</option>
                     <option value="debit">Debit</option>
                   </select>
-                  {/* <input
-                    type="text"
-                    name="type"
-                    id="type"
-                    onChange={(e) => {
-                      setValues({ ...values, type: e.target.value });
-                    }}
-                    value={values.type}
-                    required
-                  /> */}
                 </div>
               </div>
 
